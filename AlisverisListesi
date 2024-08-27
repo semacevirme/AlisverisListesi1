@@ -1,0 +1,40 @@
+urunler = []
+
+
+def urun_ekle(urun):
+    urunler.append(urun)
+    print("Ürün eklendi: {urun}")
+
+def urunleri_listele():
+    print("Alışveriş Listesi")
+    if not urunler:
+        print("yumurta, süt, peynir")
+    else:
+        for sira, urun, in enumerate(urunler, 1):
+            print("{sira}, {urun}")
+
+def urun_sil(sira_numarasi):
+    if 1 <= sira_numarasi <= len(urunler):
+        silinen = urunler.pop(sira_numarasi - 1)
+        print(f"Ürün silindi: {silinen}")
+    else:
+        print("Geçersiz sıra numarası.")
+
+
+while True:
+    print("\nKomutlar: ekle, listele, sil, çık")
+    komut = input("Bir komut girin:")
+
+    if komut =="ekle":
+        urun = input("Eklenecek ürün girin:")
+        urun_ekle(urun)
+    elif komut == "listele":
+        urunleri_listele()
+    elif komut =="sil":
+        sira_numarasi = int(input("Silinecek ürün sıra numarasını girin:"))
+        urun_sil(sira_numarasi)
+    elif komut == "çık":(
+         print("Programdan çıkılıyor..."))
+    break
+else:
+    print("Geçersiz komut.")
